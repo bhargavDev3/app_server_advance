@@ -1,0 +1,101 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deployment Logs - Hallmark - 29022025</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+        <style>
+            body {
+                background: #ffffff;
+                font-family: 'Arial', sans-serif;
+                color: #333333;
+            }
+            .table-container {
+                background: #ffffff;
+                border-radius: 15px;
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 1200px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .table-header {
+                background: #f8f9fa;
+                color: #333333;
+                font-weight: bold;
+            }
+            .table-row {
+                background: #ffffff;
+                transition: background 0.3s ease;
+            }
+            .table-row:hover {
+                background: #f8f9fa;
+            }
+            .failed-link {
+                color: #ff6b6b;
+                text-decoration: underline;
+            }
+            .failed-link:hover {
+                color: #ff4757;
+            }
+            .success {
+                color: #4cd137;
+            }
+            .failure {
+                color: #ff4757;
+            }
+            .fade-in {
+                animation: fadeIn 0.5s ease-in;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            h1 {
+                color: #333333;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body class="p-8">
+        <div class="table-container animate__animated animate__fadeIn">
+            <h1 class="text-4xl font-bold text-center mb-8">
+                Deployment Logs - <span class="text-blue-600">Hallmark</span> - <span class="text-purple-600">29022025</span>
+            </h1>
+            <table class="min-w-full">
+                <thead class="table-header">
+                    <tr>
+                        <th class="py-4 px-6 text-left">S-No</th>
+                        <th class="py-4 px-6 text-left">Date</th>
+                        <th class="py-4 px-6 text-left">Execution Type</th>
+                        <th class="py-4 px-6 text-left">Client-Name</th>
+                        <th class="py-4 px-6 text-left">Successful</th>
+                        <th class="py-4 px-6 text-left">Failed</th>
+                        <th class="py-4 px-6 text-left">Paths_failed</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+    
+    <tr class="table-row fade-in">
+        <td class="py-4 px-6 border-b">7</td>
+        <td class="py-4 px-6 border-b">2025-02-28 09:56:48</td>
+        <td class="py-4 px-6 border-b">Basic_settings.py</td>
+        <td class="py-4 px-6 border-b">Hallmark</td>
+        <td class="py-4 px-6 border-b success">1</td>
+        <td class="py-4 px-6 border-b failure">0</td>
+        <td class="py-4 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row fade-in">
+        <td class="py-4 px-6 border-b">7</td>
+        <td class="py-4 px-6 border-b">2025-02-28 09:56:48</td>
+        <td class="py-4 px-6 border-b">Basic_settings.py</td>
+        <td class="py-4 px-6 border-b">Hallmark</td>
+        <td class="py-4 px-6 border-b success">1</td>
+        <td class="py-4 px-6 border-b failure">0</td>
+        <td class="py-4 px-6 border-b"></td>
+    </tr>
+    

@@ -1,0 +1,5 @@
+pip install iis_bridge
+pip install pyiis
+@echo off
+C:\Windows\System32\inetsrv\appcmd.exe stop site /site.name:"Hallmark"
+pip install pywin32

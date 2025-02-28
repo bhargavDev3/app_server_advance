@@ -1,0 +1,14 @@
+# Define the client name and site
+client_name = "Hallmark"
+client_site = f"https://{client_name}.nimbleproperty.net"
+
+# Define the paths to the OCR files
+OCR_management = r"C:\Production2\Hallmark\Build\OCR\OCRManagement.js"
+OCR_mapping = r"C:\Production2\Hallmark\Build\OCR\OCRFiles\Scripts\Mapping.js"
+
+
+can you rewrite the paths using client_name? example 
+
+OCR_management = r"C:\Production2\{client_name}\Build\OCR\OCRManagement.js"
+OCR_mapping = r"C:\Production2\{client_name}\Build\OCR\OCRFiles\Scripts\Mapping.js"
+
