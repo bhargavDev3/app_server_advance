@@ -8,6 +8,7 @@ from app_main import client_name, New_Build_Source, base_path
 from log_utils import write_log
 
 client_path = fr"{base_path}/{client_name}/Build"
+completion_flag_file = os.path.join(base_path, "copy_paste_completed.flag")
 
 def is_admin():
     """Check if the script is running with administrative privileges."""
@@ -90,25 +91,37 @@ def copy_except_excluded(New_Build_Source, client_path):
             return False, [str(e)]
     return True, []
 
+def execute_copy_paste_process():
+    """Execute the entire copy-paste process."""
+    print("Executing Copy_paste.py...")
+
+    # Step 1: Clean client_path
+    print("Step 1: Cleaning client_path...")
+    success, errors = clean_directory(client_path)
+    if not success:
+        # Log the failure
+        # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
+        sys.exit(1)
+    time.sleep(5)
+
+    # Step 2: Copy from New_Build_Source to client_path
+    print("\nStep 2: Copying from New_Build_Source to client_path...")
+    success, errors = copy_except_excluded(New_Build_Source, client_path)
+    if not success:
+        # Log the failure
+        # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
+        sys.exit(1)
+
+    # Create a completion flag file
+    with open(completion_flag_file, "w") as flag_file:
+        flag_file.write("Copy_paste.py completed successfully.")
+
+    # Log the success
+    # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
+    print("\nCopy_paste.py completed successfully.")
+
 if __name__ == "__main__":
     if not is_admin():
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     else:
-        # Step 1: Clean client_path
-        print("Step 1: Cleaning client_path...")
-        success, errors = clean_directory(client_path)
-        if not success:
-            # Log the failure
-            # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
-            sys.exit(1)
-        time.sleep(5)
-        # Step 2: Copy from New_Build_Source to client_path
-        print("\nStep 2: Copying from New_Build_Source to client_path...")
-        success, errors = copy_except_excluded(New_Build_Source, client_path)
-        if not success:
-            # Log the failure
-            # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
-            sys.exit(1)
-        # Log the success
-        # Example: write_log(log_file, s_no, "Copy_paste.py", client_name, success, not success, errors)
-        print("\nProcess completed!")
+        execute_copy_paste_process()
