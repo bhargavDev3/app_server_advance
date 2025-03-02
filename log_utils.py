@@ -11,6 +11,14 @@ def create_log_file(client_name, date):
     base_log_file = f"{client_name}_{date.replace('/', '_')}.html"
     log_file = os.path.join(LOG_DIR, base_log_file)
 
+    # Check if the log file already exists
+    counter = 1
+    while os.path.exists(log_file):
+        # Append a suffix like "-2nd", "-3rd", etc.
+        suffix = f"-{counter}nd" if counter == 2 else f"-{counter}rd" if counter == 3 else f"-{counter}th"
+        log_file = os.path.join(LOG_DIR, f"{client_name}_{date.replace('/', '_')}{suffix}.html")
+        counter += 1
+
     # Create the log file with the HTML structure
     html_content = f"""
     <!DOCTYPE html>

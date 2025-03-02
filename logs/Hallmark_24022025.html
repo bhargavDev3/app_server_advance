@@ -1,0 +1,143 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deployment Logs - Hallmark - 24022025</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            body {
+                background: #f0f4f8;
+                font-family: 'Arial', sans-serif;
+                color: #333333;
+            }
+            .table-container {
+                background: #ffffff;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 1200px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .table-header {
+                background: #4a5568;
+                color: #ffffff;
+                font-weight: bold;
+            }
+            .table-row {
+                transition: background 0.3s ease;
+            }
+            .table-row:hover {
+                background: #f7fafc;
+            }
+            .failed-link {
+                color: #e53e3e;
+                text-decoration: underline;
+            }
+            .failed-link:hover {
+                color: #c53030;
+            }
+            .success {
+                color: #38a169;
+            }
+            .failure {
+                color: #e53e3e;
+            }
+        </style>
+    </head>
+    <body class="p-8">
+        <div class="table-container">
+            <h1 class="text-3xl font-bold text-center mb-8">
+                Deployment Logs - <span class="text-blue-600">Hallmark</span> - <span class="text-purple-600">24022025</span>
+            </h1>
+            <table class="min-w-full">
+                <thead class="table-header">
+                    <tr>
+                        <th class="py-3 px-6 text-left">S-No</th>
+                        <th class="py-3 px-6 text-left">Date</th>
+                        <th class="py-3 px-6 text-left">Execution Type</th>
+                        <th class="py-3 px-6 text-left">Client-Name</th>
+                        <th class="py-3 px-6 text-left">Successful</th>
+                        <th class="py-3 px-6 text-left">Failed</th>
+                        <th class="py-3 px-6 text-left">Paths_failed</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">1</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:05:35</td>
+        <td class="py-3 px-6 border-b">iis_stop.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">2</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:06:17</td>
+        <td class="py-3 px-6 border-b">Delete_Backup.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">3</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:06:39</td>
+        <td class="py-3 px-6 border-b">Copy_paste.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">4</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:10:01</td>
+        <td class="py-3 px-6 border-b">Dashboard.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">5</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:10:13</td>
+        <td class="py-3 px-6 border-b">Ocr.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">6</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:10:25</td>
+        <td class="py-3 px-6 border-b">app_pool_create.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+    <tr class="table-row">
+        <td class="py-3 px-6 border-b">7</td>
+        <td class="py-3 px-6 border-b">2025-03-02 11:10:37</td>
+        <td class="py-3 px-6 border-b">Basic_settings.py</td>
+        <td class="py-3 px-6 border-b">Hallmark</td>
+        <td class="py-3 px-6 border-b success">1</td>
+        <td class="py-3 px-6 border-b failure">0</td>
+        <td class="py-3 px-6 border-b"></td>
+    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+    </body>
+    </html>
+        

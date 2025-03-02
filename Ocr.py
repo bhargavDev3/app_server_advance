@@ -3,8 +3,10 @@ import os
 import subprocess
 import ctypes
 import sys
-from app_main import client_name, base_path, log_file
-from log import write_log
+from app_main import client_name, base_path
+from log_utils import write_log
+
+client_site = f"https://{client_name}.nimbleproperty.net"
 
 def is_admin():
     """Check if the script is running with administrative privileges."""
@@ -12,8 +14,6 @@ def is_admin():
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
-
-client_site = f"https://{client_name}.nimbleproperty.net"
 
 def find_correct_case_path(base_path, client_name):
     """Find the correct case of the client_name in the base path."""
@@ -51,27 +51,25 @@ def process_file(file_path):
             file.write(content)
 
         print(f"File '{file_path}' has been updated successfully.")
-        write_log(log_file, 5, "Ocr.py", client_name, 1, 0, [])  # Log success
+        return True, []  # Success, no errors
     except Exception as e:
         print(f"Failed to update file '{file_path}'. Reason: {e}")
-        write_log(log_file, 5, "Ocr.py", client_name, 0, 1, [str(e)])  # Log failure
+        return False, [str(e)]  # Failure, with error details
 
-def main():
-    # Find the correct case of the client_name in the base path
-    client_path = find_correct_case_path(base_path, client_name)
+if __name__ == "__main__":
+    if not is_admin():
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    else:
+        # Find the correct case of the client_name in the base path
+        client_path = find_correct_case_path(base_path, client_name)
 
-    # Define the paths to the OCR files using the correct case of client_name
-    OCR_management = os.path.join(client_path, "Build", "OCR", "OCRManagement.js")
-    OCR_mapping = os.path.join(client_path, "Build", "OCR", "OCRFiles", "Scripts", "Mapping.js")
+        # Define the paths to the OCR files using the correct case of client_name
+        OCR_management = os.path.join(client_path, "Build", "OCR", "OCRManagement.js")
+        OCR_mapping = os.path.join(client_path, "Build", "OCR", "OCRFiles", "Scripts", "Mapping.js")
 
-    # Process both files
-    process_file(OCR_management)
-    process_file(OCR_mapping)
+        # Process both files
+        success1, errors1 = process_file(OCR_management)
+        success2, errors2 = process_file(OCR_mapping)
 
-# Check if the script is running as administrator
-if not is_admin():
-    # Request admin privileges if not already running as admin
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-else:
-    # Run the main script if running as admin
-    main()
+        # Log the results (assuming log_file and s_no are passed or managed globally)
+        # Example: write_log(log_file, s_no, "Ocr.py", client_name, success1 and success2, not (success1 and success2), errors1 + errors2)

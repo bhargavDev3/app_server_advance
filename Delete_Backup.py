@@ -1,8 +1,8 @@
 import os
 import glob
 import subprocess
-from app_main import client_name, WINRAR_PATH, base_path, log_file
-from log import write_log
+from app_main import client_name, WINRAR_PATH, base_path
+from log_utils import write_log
 
 def delete_buildx_rar_files(folder_path):
     try:
@@ -14,16 +14,16 @@ def delete_buildx_rar_files(folder_path):
                 print(f"Deleted: {file_name}")
             else:
                 print(f"Skipped: {file_name} (protected)")
-        write_log(log_file, 2, "Delete_Backup.py", client_name, 1, 0, [])  # Log success
+        return True, []  # Success, no errors
     except Exception as e:
         print(f"An error occurred in delete_buildx_rar_files: {e}")
-        write_log(log_file, 2, "Delete_Backup.py", client_name, 0, 1, [str(e)])  # Log failure
+        return False, [str(e)]  # Failure, with error details
 
 def process_folder(folder_path):
     rar_files = [f for f in os.listdir(folder_path) if f.lower().startswith("build") and f.endswith(".rar")]
     if rar_files:
         print(f"Found .rar files: {rar_files}")
-        delete_buildx_rar_files(folder_path)
+        success, errors = delete_buildx_rar_files(folder_path)
         build_rar_path = None
         for rar_file in rar_files:
             if rar_file.lower() == "build.rar":
@@ -48,6 +48,10 @@ def process_folder(folder_path):
             print(f"Added Build folder to Build.rar")
         else:
             print("Build folder not found.")
+    return True, []  # Success, no errors
 
-folder_path = fr"{base_path}\{client_name}"
-process_folder(folder_path)
+if __name__ == "__main__":
+    folder_path = fr"{base_path}\{client_name}"
+    success, errors = process_folder(folder_path)
+    # Log the result (assuming log_file and s_no are passed or managed globally)
+    # Example: write_log(log_file, s_no, "Delete_Backup.py", client_name, success, not success, errors)
