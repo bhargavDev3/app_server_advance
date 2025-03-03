@@ -2,7 +2,7 @@ import os
 import datetime
 
 # Log file configuration
-LOG_DIR = "logs"  # Logs will be saved in the "logs" directory inside the current directory
+LOG_DIR = "app_logs"  # Logs will be saved in the "logs" directory inside the current directory
 os.makedirs(LOG_DIR, exist_ok=True)
 
 def create_log_file(client_name, date):

@@ -4,7 +4,7 @@ import subprocess
 import ctypes
 import sys
 from app_main import client_name, base_path
-from log_utils import write_log
+from app_log_utils import write_log
 
 def is_admin():
     """Check if the script is running with administrative privileges."""

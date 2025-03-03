@@ -2,7 +2,7 @@ import os
 import glob
 import subprocess
 from app_main import client_name, WINRAR_PATH, base_path
-from log_utils import write_log
+from app_log_utils import write_log
 
 def delete_buildx_rar_files(folder_path):
     try:

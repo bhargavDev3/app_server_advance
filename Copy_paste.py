@@ -5,7 +5,7 @@ import subprocess
 import ctypes
 import sys
 from app_main import client_name, New_Build_Source, base_path
-from log_utils import write_log
+from app_log_utils import write_log
 
 client_path = fr"{base_path}/{client_name}/Build"
 completion_flag_file = os.path.join(base_path, "copy_paste_completed.flag")

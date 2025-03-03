@@ -1,11 +1,11 @@
 import subprocess
 import time
 import os
-from log_utils import create_log_file, write_log, close_log_file
+from app_log_utils import create_log_file, write_log, close_log_file
 
 # Common variables for all scripts
 client_name = "Hallmark"  # Client name
-date = "50022025"  # Today date
+date = "53022025"  # Today date
 app_pool_name = f"{client_name}_{date}"
 site_name = client_name
 application_name = "OCRWEBAPI"  # Application name under client site
